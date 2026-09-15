@@ -1,0 +1,50 @@
+{
+  "title": "Example sanitized call flows",
+  "note": "All values are synthetic. No PHI, phone numbers, or client identifiers.",
+  "flows": [
+    {
+      "name": "administrative_scheduling",
+      "steps": [
+        "Incoming call",
+        "Session initialized (INITIALIZING → CONNECTED → LISTENING)",
+        "Caller asks to schedule an appointment",
+        "Intent classified as schedule_appointment",
+        "Administrative workflow selected",
+        "Structured post-call event created",
+        "Call completed"
+      ],
+      "sampleIntentRequest": {
+        "text": "I need to schedule an appointment next week"
+      },
+      "expectedDecision": {
+        "intent": "schedule_appointment",
+        "action": "trigger_scheduling_workflow",
+        "requiresHumanFollowUp": false
+      }
+    },
+    {
+      "name": "clinical_escalation_transfer",
+      "steps": [
+        "Incoming call",
+        "Caller asks a question requiring clinical judgment",
+        "Intent requires human escalation",
+        "Transfer orchestrator selects staff destination",
+        "Telephony adapter performs demo transfer",
+        "Transfer outcome recorded",
+        "Post-call event published"
+      ],
+      "sampleIntentRequest": {
+        "text": "What do my lab results mean?"
+      },
+      "expectedDecision": {
+        "intent": "lab_question",
+        "action": "escalate_to_staff",
+        "requiresHumanFollowUp": true
+      },
+      "sampleTransferRequest": {
+        "destination": "clinical_callback_queue",
+        "reason": "Lab question requires staff follow-up"
+      }
+    }
+  ]
+}
