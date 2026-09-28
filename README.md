@@ -1,5 +1,11 @@
 # Medical Office AI Voice Receptionist
 
+TypeScript · Fastify · LiveKit · OpenAI Realtime · RingCentral · n8n
+
+Production-inspired real-time AI receptionist architecture with call routing, human escalation, transfer orchestration and post-call workflows.
+
+---
+
 A public engineering showcase based on a production AI voice receptionist I built for a medical office.
 
 The production system automates front-desk phone workflows using TypeScript, Fastify, LiveKit, OpenAI Realtime, RingCentral, and n8n, with realtime voice handling, intent routing, staff transfers, and post-call automation.
